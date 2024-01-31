@@ -52,7 +52,7 @@ M_{S_x}^{-1} =
 \end{bmatrix}
 ```
 <br>
-For the y direction, everything would be the same, except that the $`-r_x`$ on the top right and the 0 on the bottom left would be switched: 
+For the y direction, everything would be the same, except that the -r_x on the top right and the 0 on the bottom left would be switched: 
 
 ```math
 M_{S_y}^{-1} =
