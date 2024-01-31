@@ -37,26 +37,28 @@ The matrix would be:
 M_{S_x}^{-1} = 
 \begin{bmatrix}
 1 & r_x\\
-0 & 1\\
+0 & 1
 \end{bmatrix} ^{-1}
 = 
 \frac{1}{(1)(1)-(r_x)(0)}
 *
 \begin{bmatrix}
 1 & -(r_x)\\
-0 & 1\\
+0 & 1
 \end{bmatrix}
 =
 \begin{bmatrix}
-1 & -(r_x)\\
-0 & 1\\
+1 & -r_x\\
+0 & 1
 \end{bmatrix}
 ```
 <br>
-For the y direction, everything would be the same, except that the $-{r_x}$ on the top right and the ${0}$ on the bottom left would be switched:
+For the y direction, everything would be the same, except that the `-r_x` on the top right and the `0` on the bottom left would be switched: <br>
+
 ```math
+M_{S_y}^{-1} =
 \begin{bmatrix}
-1 & -(r_x)\\
-0 & 1\\
+1 & 0\\
+-r_y & 1\\
 \end{bmatrix}
 ```
