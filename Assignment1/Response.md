@@ -4,11 +4,12 @@ We think that inverting translation means that we are going in the negative dire
 The matrix would be:
 
 ```math
-\begin(bmatrix)
+M_T^{-1} = 
+\begin{bmatrix}
 1 & 0 & -t_x \\
 0 & 1 & -t_y \\
 0 & 0 & 1
-\end(bmatrix)
+\end{bmatrix}
 ```
 
 ## Question 2
