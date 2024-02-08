@@ -32,11 +32,12 @@ figure(4)
 imshow(I_t)
 
 %% translate 300 in X, 500 in Y, rotate CC 20 deg, scale down to 0.5x size
-% supposed to be in one call of transformImage?
-%A = [];
-%I_t = transformImage( I, A, "homography" );
-%figure(5)
-%imshow(I_t)
+% supposed to be in one call of transformImage
+t = deg2rad(-20);
+A = [(.5 *cos(t)),(.5 * -sin(t)),300; (.5 * sin(t)),(.5 * cos(t)),500; 0,0,1];
+I_t = transformImage( I, A, "transform" );
+figure(5)
+imshow(I_t)
 
 %% two affine transformations
 A = [ 1,.4,.4; .1,1,.3; 0,0,1 ];
@@ -54,6 +55,7 @@ A = [ .8,.2,.3; -.1,.9,-.1; .0005,-.0005,1 ];
 I_t = transformImage( I, A, "homography" );
 figure(71)
 imshow(I_t)
+imwrite(I_t, "Image2.png");
 
 % This part not working for some reason
 %A = [ 29.25,13.95,20.25; 4.95,35.55,9.45; .045,.09,45 ];

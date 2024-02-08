@@ -28,8 +28,8 @@ function TransformedImage = transformImage( InputImage, TransformMatrix, Transfo
     % Aprime through Cprime need to have their mins altered to deal with
     % a set of transforms
     
-    minx = min(cornersprime(1,:));
-    miny = min(cornersprime(2,:));
+    minx = min([1, cornersprime(1,:)]);
+    miny = min([1, cornersprime(2,:)]);
     maxx = max(cornersprime(1,:));
     maxy = max(cornersprime(2,:));
     
@@ -64,7 +64,10 @@ function TransformedImage = transformImage( InputImage, TransformMatrix, Transfo
 
     elseif (strcmp(TransformType, "homography"))
         Ainv = inv( A );  % affine transform, and homography
-
+    
+    elseif (strcmp(TransformType, "transform"))
+        Ainv = inv( A );  %multiple transforms
+    
     end
 
 	% Step 4 ---------------
