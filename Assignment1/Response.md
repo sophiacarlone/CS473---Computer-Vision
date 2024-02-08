@@ -52,7 +52,7 @@ M_{S_x}^{-1} =
 \end{bmatrix}
 ```
 <br>
-For the y direction, everything would be the same, except that the -r_x on the top right and the 0 on the bottom left would be switched: 
+For the y direction, everything would be the same, except that the $`-r_x`$ on the top right and the 0 on the bottom left would be switched: 
 
 ```math
 M_{S_y}^{-1} =
@@ -128,14 +128,12 @@ A_t = \begin{bmatrix}
 ```math
 A_r = \begin{bmatrix}
     \cos{-20} & -\sin{20} & 0\\
-    \sin{20} & \cos{20} & 0\\
+    \sin{-20} & \cos{-20} & 0\\
     0 & 0 & 1
     \end{bmatrix}
 ```
 
-```math
-    \text{So, }A=A_s*A_t*A_r,\text{ and we used the inv() function in MATLAB to find the inverse matrix.}
-```
+So, $`A=A_s*A_t*A_r`$, and we used the inv() function in MATLAB to find the inverse matrix.
 
 ## Question 6
 Affine transformations worked normally with the regular functions implemented.
