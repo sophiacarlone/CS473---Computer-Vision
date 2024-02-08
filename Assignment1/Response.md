@@ -113,21 +113,27 @@ We used the composition of three different matrices:
 A_s = \begin{bmatrix}
     0.5 & 0 & 0\\
     0 & 0.5 & 0\\
-    0 & 0 & 1\\
-    \end{bmatrix}\\
+    0 & 0 & 1
+    \end{bmatrix}
+```
 
+```math
 A_t = \begin{bmatrix}
     1 & 0 & 300\\
     0 & 1 & 500\\
-    0 & 0 & 1\\
-    \end{bmatrix}\\
+    0 & 0 & 1
+    \end{bmatrix}
+```
 
+```math
 A_r = \begin{bmatrix}
     \cos{-20} & -\sin{20} & 0\\
     \sin{20} & \cos{20} & 0\\
-    0 & 0 & 1\\
-    \end{bmatrix}\\
+    0 & 0 & 1
+    \end{bmatrix}
+```
 
+```math
     \text{So, }A=A_s*A_t*A_r,]text{ and we used the inv() function in MATLAB to find the inverse matrix.}
 ```
 
