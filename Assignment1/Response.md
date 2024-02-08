@@ -82,7 +82,7 @@ A = \begin{bmatrix}
 A = \begin{bmatrix}
     1 & 0 & 0\\
     0 & -1 & 0\\
-    0 & 0 & 1\\
+    0 & 0 & 1
     \end{bmatrix}
 ```
 
@@ -92,7 +92,7 @@ A = \begin{bmatrix}
 A = \begin{bmatrix}
     \cos{30} & -\sin{30} & 0\\
     \sin{30} & \cos{30} & 0\\
-    0 & 0 & 1\\
+    0 & 0 & 1
     \end{bmatrix}
 ```
 
@@ -102,7 +102,7 @@ A = \begin{bmatrix}
 A = \begin{bmatrix}
     1 & 0.5 & 0\\
     0 & 1 & 0\\
-    0 & 0 & 1\\
+    0 & 0 & 1
     \end{bmatrix}
 ```
 
@@ -134,7 +134,7 @@ A_r = \begin{bmatrix}
 ```
 
 ```math
-    \text{So, }A=A_s*A_t*A_r,]text{ and we used the inv() function in MATLAB to find the inverse matrix.}
+    \text{So, }A=A_s*A_t*A_r,}text{ and we used the inv() function in MATLAB to find the inverse matrix.}
 ```
 
 ## Question 6
