@@ -36,8 +36,10 @@ imshow(I_t)
 %% translate 300 in X, 500 in Y, rotate CC 20 deg, scale down to 0.5x size
 % supposed to be in one call of transformImage
 t = deg2rad(-20);
-A1 = 0;
-A = [(.5 *cos(t)),(.5 * -sin(t)),150; (.5 * sin(t)),(.5 * cos(t)),250; 0,0,1];
+A_s = [ .5,0,0; 0,.5,0; 0,0,1 ];
+A_t = [ 1,0,300; 0,1,500; 0,0,1 ];
+A_r = [ cos(t),-sin(t),0; sin(t),cos(t),0; 0,0,1 ];
+A = A_s*A_t*A_r;
 I_t = transformImage( I, A, "transform" );
 figure(5)
 imshow(I_t)
