@@ -120,6 +120,7 @@ A_t = \begin{bmatrix}
     1 & 0 & 300\\
     0 & 1 & 500\\
     0 & 0 & 1\\
+    \end{bmatrix}\\
 
 A_r = \begin{bmatrix}
     \cos{-20} & -\sin{20} & 0\\
