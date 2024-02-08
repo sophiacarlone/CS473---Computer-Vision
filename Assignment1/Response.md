@@ -134,7 +134,7 @@ A_r = \begin{bmatrix}
 ```
 
 ```math
-    \text{So, }A=A_s*A_t*A_r,}\text{ and we used the inv() function in MATLAB to find the inverse matrix.}
+    \text{So, }A=A_s*A_t*A_r,\text{ and we used the inv() function in MATLAB to find the inverse matrix.}
 ```
 
 ## Question 6
