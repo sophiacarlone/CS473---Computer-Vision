@@ -1,3 +1,8 @@
+open transformImage.m
+open estimateTransform.m
+
+%% Part 2
+
 im1 = imread("Image1.jpg");
 im2 = imread("Image2.jpg");
 
@@ -18,5 +23,5 @@ indexPairs = matchFeatures( features1, features2, "Unique", true );
 matchedPoints1 = points1( indexPairs( :,1 ) );
 matchedPoints2 = points2( indexPairs( :,2 ) );
 
-m1_points = matchedPoints1.Location;
-m2_points = matchedPoints2.Location ;
+im1_points = matchedPoints1.Location;
+im2_points = matchedPoints2.Location ;
