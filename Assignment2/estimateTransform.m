@@ -20,7 +20,7 @@ function A=estimateTransform( im1_points, im2_points )
 
 [n, throwaway] = size(im2_points);
 n = 2*n; %check
-designmatrix = zeros(n); 
+designmatrix = zeros(n, 9); 
 r = zeros(1, n);
 
     for i = 1:n
@@ -34,4 +34,7 @@ r = zeros(1, n);
         r(n+1) = (-1* yp);
         n = n +1;
     end
+
+q = zeros(9, 1);
+
 end

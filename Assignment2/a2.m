@@ -1,5 +1,5 @@
 open transformImage.m
-open estimateTransform.m
+open EstimatedTransform.m
 
 %% Part 2
 
@@ -24,4 +24,7 @@ matchedPoints1 = points1( indexPairs( :,1 ) );
 matchedPoints2 = points2( indexPairs( :,2 ) );
 
 im1_points = matchedPoints1.Location;
-im2_points = matchedPoints2.Location ;
+im2_points = matchedPoints2.Location;
+
+estimateTransform(im1_points, im2_points); % throwing an error
+
