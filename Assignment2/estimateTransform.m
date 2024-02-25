@@ -1,5 +1,6 @@
 function A=estimateTransform( im1_points, im2_points )
-
+%double(im1_points)
+%double(im2_points)
 % Set up design matrix P: size = 2*size(pts1i,1) x 9
 
 % xph = ax+by+c
@@ -17,17 +18,18 @@ function A=estimateTransform( im1_points, im2_points )
 [n, throwaway] = size(im2_points);
 n = 2*n; %check
 P = zeros(n, 9); 
+%double(P);
 r = zeros(1, n);
 
     for i = 1:n
-        x = im1_points(n, 1);
-        xp = im2_points(n, 1);
-        y = im1_points(n, 1);
-        yp = im2_points(n, 1);
-        P(n, :) = {-1*x, -1*y, -1, 0, 0, 0, x*xp, y*xp, xp};
-        P(n+1, :) = {0, 0, 0, -1*x, -1*y, -1, x*yp, y*yp, yp};
-        r(n) = (-1* xp);
-        r(n+1) = (-1* yp);
+        x = double(im1_points(i, 1));
+        xp = double(im2_points(i, 1));
+        y = double(im1_points(i, 1));
+        yp = double(im2_points(i, 1));
+        P(n, :) = {times(-1.0, x), times(-1.0, y), -1.0, 0.0, 0.0, 0.0, times(x,xp), times(y,xp), xp};
+        P(n+1, :) = {0, 0, 0, times(-1,x), times(-1,y), -1, times(x,yp), times(y,yp), yp};
+        r(n) = times(-1, xp);
+        r(n+1) = times(-1, yp);
         n = n +1;
     end
 

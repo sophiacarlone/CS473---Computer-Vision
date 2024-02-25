@@ -1,5 +1,9 @@
 open transformImage.m
-open EstimatedTransform.m
+clear
+clc
+
+open estimateTransform.m
+open estimateTransformRansac.m
 
 %% Part 2
 
@@ -26,5 +30,5 @@ matchedPoints2 = points2( indexPairs( :,2 ) );
 im1_points = matchedPoints1.Location;
 im2_points = matchedPoints2.Location;
 
-estimateTransform(im1_points, im2_points); % throwing an error
-
+imnew = estimateTransformRansac(im1_points, im2_points); % throwing an error
+imshow(imnew);

@@ -1,3 +1,4 @@
+function A=estimateTransformRansac( pts1, pts2 )
 % pts1: nx2, pts2: nx2
 
 Nransac = 10000;
@@ -42,3 +43,4 @@ pts1inliers = pts1(idxbest,:);
 pts2inliers = pts2(idxbest,:);
 
 A_inliers = estimateTransform( pts1inliers, pts2inliers );
+end
