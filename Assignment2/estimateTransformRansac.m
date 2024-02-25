@@ -42,5 +42,6 @@ end
 pts1inliers = pts1(idxbest,:);
 pts2inliers = pts2(idxbest,:);
 
-A_inliers = estimateTransform( pts1inliers, pts2inliers );
+A = estimateTransform( pts1inliers, pts2inliers );
+
 end

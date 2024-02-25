@@ -30,5 +30,6 @@ matchedPoints2 = points2( indexPairs( :,2 ) );
 im1_points = matchedPoints1.Location;
 im2_points = matchedPoints2.Location;
 
-imnew = estimateTransformRansac(im1_points, im2_points); % throwing an error
-imshow(imnew);
+A = estimateTransformRansac(im1_points, im2_points); % throwing an error
+imnew = transformImage( im2, inv(A), "homography" );
+imshow(imnew)

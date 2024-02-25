@@ -15,22 +15,21 @@ function A=estimateTransform( im1_points, im2_points )
 %repeat for x2 and y2 and so on
 %x is from im1 and xp is from im2, same for ys
 
-[n, throwaway] = size(im2_points);
-n = 2*n; %check
-P = zeros(n, 9); 
+[n, ~] = size(im2_points);
+P = zeros(2*n, 9); 
 %double(P);
 r = zeros(1, n);
 
     for i = 1:n
-        x = double(im1_points(i, 1));
-        xp = double(im2_points(i, 1));
-        y = double(im1_points(i, 1));
-        yp = double(im2_points(i, 1));
-        P(n, :) = {times(-1.0, x), times(-1.0, y), -1.0, 0.0, 0.0, 0.0, times(x,xp), times(y,xp), xp};
-        P(n+1, :) = {0, 0, 0, times(-1,x), times(-1,y), -1, times(x,yp), times(y,yp), yp};
-        r(n) = times(-1, xp);
-        r(n+1) = times(-1, yp);
-        n = n +1;
+        x = (im1_points(i, 1));
+        xp = (im2_points(i, 1));
+        y = (im1_points(i, 2));
+        yp = (im2_points(i, 2));
+        P(((2* i) - 1), :) = [times(-1.0, x), times(-1.0, y), -1.0, 0.0, 0.0, 0.0, times(x,xp), times(y,xp), xp];
+        P(2*i, :) = [0, 0, 0, times(-1,x), times(-1,y), -1, times(x,yp), times(y,yp), yp];
+        r((2* i) - 1) = times(-1, xp);
+        r(2*i) = times(-1, yp);
+
     end
 
 
@@ -41,5 +40,7 @@ r = zeros(1, n);
     end
 
 q = V(:,end);
+
+A = (reshape(q, 3, 3))';
 
 end

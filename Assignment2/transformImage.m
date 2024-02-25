@@ -1,6 +1,6 @@
 function TransformedImage = transformImage( InputImage, TransformMatrix, TransformType )
     InputImage = im2double(InputImage);
-    InputImage = rgb2gray(InputImage);
+    %InputImage = rgb2gray(InputImage);
 
 	% Step 1 ---------------
     [h,w] = size(InputImage);
