@@ -34,8 +34,8 @@ A =
 We choose the error threshold to be 2 since we want the error for both our X and Y coordinates to be less than one. That is, we want
 
 ```math
-(x\'_{\text{actual}}-x\'_{\text{estim}})^2\leq 1,
-(y\'_{\text{actual}}-y\'_{\text{estim}})^2\leq 1.
+(x'_{\text{actual}}-x'_{\text{estim}})^2\leq 1,
+(y'_{\text{actual}}-y'_{\text{estim}})^2\leq 1.
 ```
 
 We chose the RANSAC iterations at 10,000 since it is a large number and what we were told to use in class. <br>
