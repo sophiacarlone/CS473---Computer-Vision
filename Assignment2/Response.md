@@ -1,7 +1,7 @@
 ## Part 3
-Self reporting A matrices <b>
 
-From given impoints:
+From given im_points, we found the example <b>A</b>:
+
 ```
 >> bm = [1373, 1204; 1841, 1102; 1733, 1213; 2099, 1297]
 
@@ -31,8 +31,14 @@ A =
 
 ```
 
-We choose the error threashold at 2 .<b>
-We chose the RANSAC iterations at 10,000 because that is what we were told. <b>
+We choose the error threshold to be 2 since we want the error for both our X and Y coordinates to be less than one. That is, we want
+
+```math
+(x'_{\text{actual}-x'_{\text{estim}})^2\leq 1,
+(y'_{\text{actual}-y'_{\text{estim}})^2\leq 1.
+```
+
+We chose the RANSAC iterations at 10,000 since it is a large number and what we were told to use in class. <br>
 
 ## Part 7
 
@@ -42,16 +48,18 @@ a & b & t_x \\
 -b & a & t_y \\
 0 & 0 & 1
 \end{bmatrix}
+```
 
+```math
 P = \begin{bmatrix}
 -x & -y & -1 & 0 \\
 -y & x & 0 & -1 \\
 -x & -y & -1 & 0 \\
 -y & x & 0 & -1 \\
-... & ... & ... & ... 
+\dots & \dots & \dots & dots 
 \end{bmatrix}
-
 ```
-q has 4 elements. <b>
-P has 4 columns. <b>
-We need at least 2 correspondences.
+
+q has 4 elements. <br>
+P has 4 columns. <br>
+We need at least 2 correspondences to solve a similarity transform.
