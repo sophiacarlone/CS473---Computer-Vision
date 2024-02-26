@@ -74,3 +74,9 @@ im2_blend = im2_transformed .* ramp;
 % blended panorama!
 impanorama=im1_blend+im2_blend;
 imshow(impanorama)
+
+imwrite(im2_transformed, "Image2_Transformed.png");
+imwrite(im1_expanded, "Image1_Expanded.png");
+imwrite(im1_blend, "Image1_Blended.png");
+imwrite(im2_blend, "Image2_Blended.png");
+imwrite(impanorama, "Image_Panorama.png");
