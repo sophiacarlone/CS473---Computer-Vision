@@ -31,10 +31,11 @@ A =
 
 ```
 
-We choose the error threashold at 2 because .<b>
+We choose the error threashold at 2 .<b>
 We chose the RANSAC iterations at 10,000 because that is what we were told. <b>
 
 ## Part 7
+
 ```math
 A = 
 \begin{bmatrix}
