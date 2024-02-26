@@ -69,7 +69,7 @@ x'=\frac{\hat{x}'}{\hat{w}'}=\frac{ax+by+t_x}{1}
 ```
 
 ```math
--x'=-(ax+by+t_x)=-ax-by-t_x+0\dot t_y
+-x'=-(ax+by+t_x)=-ax-by-t_x+0\cdot t_y
 ```
 
 ```math
@@ -77,7 +77,7 @@ y'=\frac{\hat{y}'}{\hat{w}'}=\frac{-bx+ay+t_y}{1}
 ```
 
 ```math
--y'=-(-bx+ay+t_y)=bx-ay+0\dot t_x-t_y
+-y'=-(-bx+ay+t_y)=bx-ay+0\cdot t_x-t_y
 ```
 
 ```math
@@ -85,7 +85,7 @@ P = \begin{bmatrix}
 -x_1 & -y_1 & -1 & 0 \\
 -y_1 & x_1 & 0 & -1 \\
 -x_2 & -y_2 & -1 & 0 \\
--y_2 & x_2 & 0 & -1 \\
+-y_2 & x_2 & 0 & -1
 \end{bmatrix},
 q = \begin{bmatrix}
 a \\
