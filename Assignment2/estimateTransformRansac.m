@@ -1,15 +1,15 @@
 function A=estimateTransformRansac( pts1, pts2 )
 % pts1: nx2, pts2: nx2
 
-Nransac = 10000;
-t = 2;
+Nransac = 10000; % repeats
+t = 2; % threshold
 
 n = size(pts1,1);
 
-k = 4;
+k = 4; % 4 pairs of points needed for homographic least squares
 
 nbest = 0;
-Abest = [];
+%Abest = [];
 idxbest = [];
 
 for i_ransac = 1:Nransac

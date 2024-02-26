@@ -19,9 +19,9 @@ function TransformedImage = transformImage( InputImage, TransformMatrix, Transfo
     
     cornersprime = ceil(cornersprime); % round up when scaling for ints
     
-    % find min of 1 and corners
-    minx = min([1, cornersprime(1,:)]);
-    miny = min([1, cornersprime(2,:)]);
+    % force corners to be 1
+    minx = 1;
+    miny = 1;
     % find max corner
     maxx = max(cornersprime(1,:));
     maxy = max(cornersprime(2,:));
