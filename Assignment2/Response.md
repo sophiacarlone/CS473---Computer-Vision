@@ -34,13 +34,15 @@ A =
 We choose the error threshold to be 2 since we want the error for both our X and Y coordinates to be less than one. That is, we want
 
 ```math
-(x'_{\text{actual}}-x'_{\text{estim}})^2\leq 1,
+(x'_{\text{actual}}-x'_{\text{estim}})^2\leq 1,\text{ }
 (y'_{\text{actual}}-y'_{\text{estim}})^2\leq 1.
 ```
 
 We chose the RANSAC iterations at 10,000 since it is a large number and what we were told to use in class. <br>
 
 ## Part 7
+
+We rearranged <b>A</b> to find the design matrix as follows:
 
 ```math
 A = \begin{bmatrix}
@@ -51,12 +53,51 @@ a & b & t_x \\
 ```
 
 ```math
+\hat{x}'=ax+by+t_x
+```
+
+```math
+\hat{y}'=-bx+ay+t_y
+```
+
+```math
+\hat{w}'=0+0+1=1
+```
+
+```math
+x'=\frac{\hat{x}'}{\hat{w}'}=\frac{ax+by+t_x}{1}
+```
+
+```math
+-x'=-(ax+by+t_x)=-ax-by-t_x+0\dot t_y
+```
+
+```math
+y'=\frac{\hat{y}'}{\hat{w}'}=\frac{-bx+ay+t_y}{1}
+```
+
+```math
+-y'=-(-bx+ay+t_y)=bx-ay+0\dot t_x-t_y
+```
+
+```math
 P = \begin{bmatrix}
--x & -y & -1 & 0 \\
--y & x & 0 & -1 \\
--x & -y & -1 & 0 \\
--y & x & 0 & -1 \\
-\dots & \dots & \dots & dots 
+-x_1 & -y_1 & -1 & 0 \\
+-y_1 & x_1 & 0 & -1 \\
+-x_2 & -y_2 & -1 & 0 \\
+-y_2 & x_2 & 0 & -1 \\
+\end{bmatrix},
+q = \begin{bmatrix}
+a \\
+b \\
+t_x \\
+t_y
+\end{bmatrix},
+r = \begin{bmatrix}
+-x_1' \\
+-y_1' \\
+-x_2' \\
+-y_2'
 \end{bmatrix}
 ```
 
