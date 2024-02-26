@@ -37,15 +37,13 @@ We chose the RANSAC iterations at 10,000 because that is what we were told. <b>
 ## Part 7
 
 ```math
-A = 
-\begin{bmatrix}
+A = \begin{bmatrix}
 a & b & t_x \\
 -b & a & t_y \\
 0 & 0 & 1
 \end{bmatrix}
 
-P = 
-\begin{bmatrix}
+P = \begin{bmatrix}
 -x & -y & -1 & 0 \\
 -y & x & 0 & -1 \\
 -x & -y & -1 & 0 \\
