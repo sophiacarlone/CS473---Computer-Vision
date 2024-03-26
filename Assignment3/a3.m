@@ -25,7 +25,8 @@ alpha = (1/f_y)*(power(lambda, 2)*C(1,2)-(x_c*y_c));
 f_x = abs(sqrt(power(lambda, 2)*C(1,1)-power(alpha,2)-power(x_c, 2)));
 
 K = [f_x, alpha, x_c; 0, f_y, y_c; 0, 0, 1]; 
-R = inv(K).*lambda*A;
+R = lambda.*inv(K);
+R = R*A;
 if det(R) ~= 1
     R = -1 .* R;
     lambda = -1 .* lambda;
@@ -33,7 +34,10 @@ end
 b = M(:, 4);
 t = inv(K).*lambda*b;
 
+%objpoints3D = objpoints3D(:, :, 1);
+
 % Part 1.4
-imgpoints2D_estim = K*[R t]*objpoints3D;
+imgpoints2D_estim = K*[R t]*[objpoints3D' ; ones(1, length(objpoints3D))];
+imgpoints2D_estim = imgpoints2D_estim(1:2, :)./imgpoints2D_estim(3, :);
 plot(impoints,"b.", imgpoints2D_estim, "ro" );
 sum_squared_distance = sum(power(imgpoints2D_estim-impoints,2));
