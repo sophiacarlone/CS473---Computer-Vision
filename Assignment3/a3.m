@@ -42,6 +42,8 @@ figure;
 imshow(InputImage); hold on;
 x = K*[R t]*[Xo; ones(1, length(Xo))];
 patch( 'vertices', x', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'b' );
-plot( impoints', 'b.') ;
-plot( imgpoints2D_estim, 'ro' );
+plot( impoints(:,1)', impoints(:,2)', 'b.') ;
+plot( imgpoints2D_estim(1,:), imgpoints2D_estim(2,:), 'ro' );
 hold off;
+
+sum_squared = sum((imgpoints2D_estim'-impoints).^2);
