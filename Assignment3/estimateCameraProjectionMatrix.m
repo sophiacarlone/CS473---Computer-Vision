@@ -6,12 +6,12 @@ r = zeros(1, 2*n);
 
     for i = 1:n
         x = impoints2D(i, 1);
-        xp = objpoints3D(i, 1);
+        Xo = objpoints3D(i, 1);
         y = impoints2D(i, 2);
-        yp = objpoints3D(i, 2);
-        zp = objpoints3D(i, 3);
-        P(2*i-1, :) = [-1*xp, -1*yp, -1*zp, -1, 0, 0, 0, 0, x*xp, x*yp, x*zp];
-        P(2*i, :) = [0, 0, 0, 0, -1*xp, -1*yp, -1*zp, -1, y*xp, y*yp, y*zp];
+        Yo = objpoints3D(i, 2);
+        Zo = objpoints3D(i, 3);
+        P(2*i-1, :) = [-1*Xo, -1*Yo, -1*Zo, -1, 0, 0, 0, 0, x*Xo, x*Yo, x*Zo];
+        P(2*i, :) = [0, 0, 0, 0, -1*Xo, -1*Yo, -1*Zo, -1, y*Xo, y*Yo, y*Zo];
         r(2*i-1) = -1*x;
         r(2*i) = -1*y;
     end
