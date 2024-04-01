@@ -52,10 +52,10 @@ plot( impoints(:,1)', impoints(:,2)', 'b.') ;
 plot( imgpoints2D_estim(1,:), imgpoints2D_estim(2,:), 'ro' );
 hold off;
 
-sum_squared = sum((imgpoints2D_estim'-impoints).^2);
+sum_squared = sum((impoints-imgpoints2D_estim').^2);
 
 %% Part 2
-% Auto generated MATLAB code from Camera Calibrator app
+%%%%% Auto generated MATLAB code from Camera Calibrator app
 
 % Define images to process
 imageFileNames = {'images/checker3.jpg',...
@@ -76,14 +76,93 @@ squareSize = 25;  % in units of 'millimeters'
 worldPoints = generateWorldPoints(detector, 'SquareSize', squareSize);
 
 % Calibrate the camera
-[K_checker, ~, ~] = estimateCameraParameters(imagePoints, worldPoints, ...
-    'EstimateSkew', false, 'EstimateTangentialDistortion', false, ...
-    'NumRadialDistortionCoefficients', 2, 'WorldUnits', 'millimeters', ...
-    'InitialIntrinsicMatrix', [], 'InitialRadialDistortion', [], ...
+[cameraParamters, ~, ~] = estimateCameraParameters(imagePoints, worldPoints, ...
     'ImageSize', [mrows, ncols]);
 
-K_checker
+%%%%%%
+
+K_checker = cameraParamters.K
+K
+
+imgpoints2D_estim_checker = K_checker*[R t]*[objpoints3D'; ones(1, length(objpoints3D))];
+imgpoints2D_estim_checker = imgpoints2D_estim_checker(1:2, :)./imgpoints2D_estim_checker(3, :);
+figure;
+imshow(InputImage); hold on;
+x_checker = K_checker*[R t]*[Xo; ones(1, length(Xo))];
+x_checker = x_checker(1:2, :)./x_checker(3, :);
+patch( 'vertices', x_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+plot( impoints(:,1)', impoints(:,2)', 'b.') ;
+plot( imgpoints2D_estim(1,:), imgpoints2D_estim(2,:), 'ro' );
+hold off;
+
 
 %% Part 3
 
-% TBD
+% Surface 1
+s1 = imread("images/surface1.jpg");
+
+% rotation and translation matrices
+Rp = [];
+tp = [];
+
+% K
+figure;
+imshow(s1); hold on;
+X_transformed1 = [R t]*[Xo; ones(1, length(Xo))];
+x_projected1_estim = K*X_transformed1;
+x_projected1_estim = x_projected1_estim(1:2, :)./x_projected1_estim(3, :);
+patch( 'vertices', x_projected1_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+% K_checker
+figure;
+imshow(s1); hold on;
+x_projected1_checker = K_checker*X_transformed1;
+x_projected1_checker = x_projected1_checker(1:2, :)./x_projected1_checker(3, :);
+patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+
+% Surface 2
+s2 = imread("images/surface2.jpg");
+
+% rotation and translation matrices
+Rp = [];
+tp = [];
+
+% K
+figure;
+imshow(s2); hold on;
+X_transformed2 = [R t]*[Xo; ones(1, length(Xo))];
+x_projected2_estim = K*X_transformed2;
+x_projected2_estim = x_projected2_estim(1:2, :)./x_projected2_estim(3, :);
+patch( 'vertices', x_projected2_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+% K_checker
+figure;
+imshow(s2); hold on;
+x_projected2_checker = K_checker*X_transformed2;
+x_projected2_checker = x_projected2_checker(1:2, :)./x_projected2_checker(3, :);
+patch( 'vertices', x_projected2_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+
+% Surface 3
+s3 = imread("images/surface3.jpg");
+
+% rotation and translation matrices
+Rp = [];
+tp = [];
+
+% K
+figure;
+imshow(s3); hold on;
+X_transformed3 = [R t]*[Xo; ones(1, length(Xo))];
+x_projected3_estim = K*X_transformed3;
+x_projected3_estim = x_projected3_estim(1:2, :)./x_projected3_estim(3, :);
+patch( 'vertices', x_projected3_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+% K_checker
+figure;
+imshow(s3); hold on;
+x_projected3_checker = K_checker*X_transformed3;
+x_projected3_checker = x_projected3_checker(1:2, :)./x_projected3_checker(3, :);
+patch( 'vertices', x_projected3_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
