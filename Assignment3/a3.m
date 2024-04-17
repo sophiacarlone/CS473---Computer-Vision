@@ -1,5 +1,5 @@
 clear
-clc
+clc; close all
 
 load("dalekosaur/object.mat");
 InputImage = imread("images/dankosaur.jpg");
@@ -13,7 +13,20 @@ InputImage = imread("images/dankosaur.jpg");
 %% Part 1.1
 
 ObjectDirectory = 'dalekosaur';
-[impoints, objpoints3D] = clickPoints( InputImage, ObjectDirectory );
+% To avoid taking forever we hard coded good data points
+%[impoints, objpoints3D] = clickPoints( InputImage, ObjectDirectory );
+impoints = [1.9613e+03, 1.1966e+03;
+1.8009e+03, 1.9388e+03;
+2.1619e+03, 2.0892e+03;
+2.4327e+03, 1.9187e+03;
+2.2121e+03, 1.3269e+03;
+1.9413e+03, 1.6880e+03];
+objpoints3D = [-1.5103, 4.0311, 0.7595;
+-2.6233, -4.2289, 2.6159;
+2.6455, -4.2127, 2.6926;
+2.6898, -4.2983, -2.5683;
+0.7712, 2.9394, -0.8908;
+-1.7499, -0.9340, 0.7141];
 
 %% Part 1.2
 
@@ -89,7 +102,9 @@ worldPoints = generateWorldPoints(detector, 'SquareSize', squareSize);
 K_checker = cameraParamters.K
 K
 
-imgpoints2D_estim_checker = K_checker*[R t]*[objpoints3D'; ones(1, length(objpoints3D))];
+R1 = [0.3 0 0;0 0.3 0; 0 0 0.3];
+t1 = [-1400; -600; 0];
+imgpoints2D_estim_checker = inv(K_checker)*[R1 t1]*[objpoints3D'; ones(1, length(objpoints3D))];
 imgpoints2D_estim_checker = imgpoints2D_estim_checker(1:2, :)./imgpoints2D_estim_checker(3, :);
 figure;
 imshow(InputImage); hold on;
@@ -103,71 +118,122 @@ hold off;
 
 %% Part 3
 
-% Surface 1
+%% Surface 1
 s1 = imread("images/surface1.jpg");
 
-% rotation and translation matrices
-Rp = [];
-tp = [];
-
+% IMAGE 1
+Rp = RotationMatrixMaker(0, 60, -20);
+tp = TranslationMatrixMaker(8, 2, -13);
 % K
-figure;
+figure(111);
 imshow(s1); hold on;
-X_transformed1 = [R t]*[Xo; ones(1, length(Xo))];
+X_transformed1 = [Rp tp]*[Xo; ones(1, length(Xo))];
 x_projected1_estim = K*X_transformed1;
 x_projected1_estim = x_projected1_estim(1:2, :)./x_projected1_estim(3, :);
 patch( 'vertices', x_projected1_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
 hold off;
 % K_checker
-figure;
+figure(112);
 imshow(s1); hold on;
 x_projected1_checker = K_checker*X_transformed1;
 x_projected1_checker = x_projected1_checker(1:2, :)./x_projected1_checker(3, :);
 patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
 hold off;
 
-% Surface 2
+% IMAGE 2
+Rp = RotationMatrixMaker(0, 0, -20);
+tp = TranslationMatrixMaker(5, 0, -13);
+% K
+figure(121);
+imshow(s1); hold on;
+X_transformed1 = [Rp tp]*[Xo; ones(1, length(Xo))];
+x_projected1_estim = K*X_transformed1;
+x_projected1_estim = x_projected1_estim(1:2, :)./x_projected1_estim(3, :);
+patch( 'vertices', x_projected1_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+% K_checker
+figure(122);
+imshow(s1); hold on;
+x_projected1_checker = K_checker*X_transformed1;
+x_projected1_checker = x_projected1_checker(1:2, :)./x_projected1_checker(3, :);
+patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+
+% IMAGE 3
+Rp = RotationMatrixMaker(0, -140, -10);
+tp = TranslationMatrixMaker(-2, 0, -13);
+% K
+figure(131);
+imshow(s1); hold on;
+X_transformed1 = [Rp tp]*[Xo; ones(1, length(Xo))];
+x_projected1_estim = K*X_transformed1;
+x_projected1_estim = x_projected1_estim(1:2, :)./x_projected1_estim(3, :);
+patch( 'vertices', x_projected1_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+% K_checker
+figure(132);
+imshow(s1); hold on;
+x_projected1_checker = K_checker*X_transformed1;
+x_projected1_checker = x_projected1_checker(1:2, :)./x_projected1_checker(3, :);
+patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+
+%% Surface 2
 s2 = imread("images/surface2.jpg");
 
-% rotation and translation matrices
-Rp = [];
-tp = [];
-
+% IMAGE 1
+Rp = RotationMatrixMaker(0, -90, 10);
+tp = TranslationMatrixMaker(5, 0, -13);
 % K
-figure;
+figure(211);
 imshow(s2); hold on;
-X_transformed2 = [R t]*[Xo; ones(1, length(Xo))];
-x_projected2_estim = K*X_transformed2;
-x_projected2_estim = x_projected2_estim(1:2, :)./x_projected2_estim(3, :);
-patch( 'vertices', x_projected2_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+X_transformed1 = [Rp tp]*[Xo; ones(1, length(Xo))];
+x_projected1_estim = K*X_transformed1;
+x_projected1_estim = x_projected1_estim(1:2, :)./x_projected1_estim(3, :);
+patch( 'vertices', x_projected1_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
 hold off;
 % K_checker
-figure;
+figure(212);
 imshow(s2); hold on;
-x_projected2_checker = K_checker*X_transformed2;
-x_projected2_checker = x_projected2_checker(1:2, :)./x_projected2_checker(3, :);
-patch( 'vertices', x_projected2_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+x_projected1_checker = K_checker*X_transformed1;
+x_projected1_checker = x_projected1_checker(1:2, :)./x_projected1_checker(3, :);
+patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
 hold off;
 
-% Surface 3
-s3 = imread("images/surface3.jpg");
-
-% rotation and translation matrices
-Rp = [];
-tp = [];
-
+% IMAGE 2
+Rp = RotationMatrixMaker(0, -90, 10);
+tp = TranslationMatrixMaker(5, 0, -13);
 % K
-figure;
-imshow(s3); hold on;
-X_transformed3 = [R t]*[Xo; ones(1, length(Xo))];
-x_projected3_estim = K*X_transformed3;
-x_projected3_estim = x_projected3_estim(1:2, :)./x_projected3_estim(3, :);
-patch( 'vertices', x_projected3_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+figure(221);
+imshow(s2); hold on;
+X_transformed1 = [Rp tp]*[Xo; ones(1, length(Xo))];
+x_projected1_estim = K*X_transformed1;
+x_projected1_estim = x_projected1_estim(1:2, :)./x_projected1_estim(3, :);
+patch( 'vertices', x_projected1_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
 hold off;
 % K_checker
-figure;
-imshow(s3); hold on;
-x_projected3_checker = K_checker*X_transformed3;
-x_projected3_checker = x_projected3_checker(1:2, :)./x_projected3_checker(3, :);
-patch( 'vertices', x_projected3_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+figure(222);
+imshow(s2); hold on;
+x_projected1_checker = K_checker*X_transformed1;
+x_projected1_checker = x_projected1_checker(1:2, :)./x_projected1_checker(3, :);
+patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+
+% IMAGE 3
+Rp = RotationMatrixMaker(0, -90, 10);
+tp = TranslationMatrixMaker(5, 0, -13);
+% K
+figure(231);
+imshow(s2); hold on;
+X_transformed1 = [Rp tp]*[Xo; ones(1, length(Xo))];
+x_projected1_estim = K*X_transformed1;
+x_projected1_estim = x_projected1_estim(1:2, :)./x_projected1_estim(3, :);
+patch( 'vertices', x_projected1_estim', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
+hold off;
+% K_checker
+figure(232);
+imshow(s2); hold on;
+x_projected1_checker = K_checker*X_transformed1;
+x_projected1_checker = x_projected1_checker(1:2, :)./x_projected1_checker(3, :);
+patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edgecolor', 'k' );
 hold off;
