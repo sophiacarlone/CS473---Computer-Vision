@@ -25,3 +25,30 @@ Additionally, we estimated that
 \]
 
 We figured the error in our estimated K came from both the fact that K is an estimate from only 6 points. Additionally, since we choose the points on both images, there may be some human error in the exact locations of points we chose on both the image and the object.
+
+# 3
+K:
+[picture](./images/);
+The operations used include:
+
+KChecker:
+[picture](./images/);
+The operations used include:
+
+K:
+[picture](./images/);
+The operations used include:
+
+KChecker:
+[picture](./images/);
+The operations used include:
+
+K:
+[picture](./images/);
+The operations used include:
+
+KChecker:
+[picture](./images/);
+The operations used include:
+
+K has worse quality than Kchecker. This may be due the estimates for K are less accurate as they are more likely to face human error.
