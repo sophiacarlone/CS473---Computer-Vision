@@ -2,7 +2,7 @@ clear
 clc; close all
 
 load("dalekosaur/object.mat");
-InputImage = imread("images/dankosaur.jpg");
+InputImage = imread("dankosaur.jpg");
 
 %figure;
 %patch('vertices', Xo', 'faces', Faces, 'facecolor', 'w', 'edgecolor', 'k');
@@ -71,14 +71,12 @@ sum_squared = sum((impoints-imgpoints2D_estim').^2);
 %%%%% Auto generated MATLAB code from Camera Calibrator app
 
 % Define images to process
-imageFileNames = {'images/checker8.jpg',...
-    'images/checker7.jpg',...
-    'images/checker6.jpg',...
-    'images/checker5.jpg',...
-    'images/checker4.jpg',...
-    'images/checker3.jpg',...
-    'images/checker2.jpg',...
-    'images/checker1.jpg',...
+imageFileNames = {'chec1.jpg',...
+    'chec2.jpg',...
+    'chec3.jpg',...
+    'chec4.jpg',...
+    'chec5.jpg',...
+    'chec6.jpg',...
     };
 % Detect calibration pattern in images
 detector = vision.calibration.monocular.CheckerboardDetector();
@@ -119,7 +117,7 @@ hold off;
 %% Part 3
 
 %% Surface 1
-s1 = imread("images/surface1.jpg");
+s1 = imread("s1.jpg");
 
 % IMAGE 1
 Rp = RotationMatrixMaker(0, 60, -20);
@@ -141,7 +139,7 @@ patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edg
 hold off;
 
 % IMAGE 2
-Rp = RotationMatrixMaker(0, 0, -20);
+Rp = RotationMatrixMaker(0, 5, 0);
 tp = TranslationMatrixMaker(5, 0, -13);
 % K
 figure(121);
@@ -179,7 +177,7 @@ patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edg
 hold off;
 
 %% Surface 2
-s2 = imread("images/surface2.jpg");
+s2 = imread("s2.jpg");
 
 % IMAGE 1
 Rp = RotationMatrixMaker(0, -90, 10);
@@ -201,8 +199,8 @@ patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edg
 hold off;
 
 % IMAGE 2
-Rp = RotationMatrixMaker(0, -90, 10);
-tp = TranslationMatrixMaker(5, 0, -13);
+Rp = RotationMatrixMaker(0, -180, -3 );
+tp = TranslationMatrixMaker(5, 0, -18);
 % K
 figure(221);
 imshow(s2); hold on;
@@ -220,8 +218,8 @@ patch( 'vertices', x_projected1_checker', 'faces', Faces, 'facecolor', 'n', 'edg
 hold off;
 
 % IMAGE 3
-Rp = RotationMatrixMaker(0, -90, 10);
-tp = TranslationMatrixMaker(5, 0, -13);
+Rp = RotationMatrixMaker(15, -30, 10);
+tp = TranslationMatrixMaker(10, 0, -20);
 % K
 figure(231);
 imshow(s2); hold on;
