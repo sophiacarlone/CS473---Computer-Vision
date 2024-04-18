@@ -3,7 +3,7 @@
 We found our sum\_squared to be
 
 $$
-    \text{sum_squared} = \begin{bmatrix}
+    \text{sum\_squared}\ =\begin{bmatrix}
         983.7296 \\
         600.8452
     \end{bmatrix}
@@ -37,13 +37,13 @@ We figured the error in our estimated $K$ came from both the fact that K is an e
 
 # 3
 
-$K$:
-![picture](./images/cv1.png) \\
+$K$: \
+![picture](./images/cv1.png) \
 The operations used include: 
 None. First mesh for k
 
-$K_{checker}$:
-![picture](./images/cv2.png) \\
+$K_{checker}$: \
+![picture](./images/cv2.png) \
 The operations used include: 
 None. First mesh for k_checker
 
@@ -51,70 +51,70 @@ None. First mesh for k_checker
 
 ### Image 1
 
-$K$:
-![dank3](./images/dank3.png) \\
+$K$: \
+![picture](./images/dank3.png) \
 The operations used include: 
 Rotated in the y axis 60 degrees, and in the z axis -20 degrees. Then translated a bit to sit towards the back edge of the box.
 
-$K_{checker}$:
-![picture](./images/dank4.png) \\
+$K_{checker}$: \
+![picture](./images/dank4.png) \
 (Uses same operations as above)
 
 ### Image 2
 
-$K$:
-![picture](./images/dank5.png) \\
+$K$: \
+![picture](./images/dank5.png) \
 The operations used include:
 Rotated 5 degrees in the y direction. Then, translated to be in the center of the box.
 
-$K_{checker}$:
-![picture](./images/dank6.png) \\
+$K_{checker}$: \
+![picture](./images/dank6.png) \
 (Uses same operations as above)
 
 ### Image 3
 
-$K$:
-![picture](./images/dank7.png) \\
+$K$: \
+![picture](./images/dank7.png) \
 The operations used include:
 Rotated in the y axis by 140 degrees and a bit in the z axis to look more realistic. Translated to be on the right side of the box.
 
-$K_{checker}$:
-![picture](./images/dank8.png) \\
+$K_{checker}$: \
+![picture](./images/dank8.png) \
 (Uses same operations as above)
 
 ## Surface 2
 
 ### Image 1
 
-$K$:
-![picture](./images/dank9.png) \\
+$K$: \
+![picture](./images/dank9.png) \
 The operations used include:
 Rotated in the y axis -90 degrees and 10 degrees in the z axis to be on the microwave. Translated then to appear towards the edge of the microwave.
 
-$K_{checker}$:
-![picture](./images/dank10.png) \\
+$K_{checker}$: \
+![picture](./images/dank10.png) \
 (Uses same operations as above)
 
 ### Image 2
 
-$K$:
-![picture](./images/dank11.png) \\
+$K$: \
+![picture](./images/dank11.png) \
 The operations used include:
 Rotated -180 degrees in the y axis and in the z axis -3 degrees to look more realistic. Then, translated to be towards the center of the microwave.
 
-$K_{checker}$:
-![picture](./images/dank12.png) \\
+$K_{checker}$: \
+![picture](./images/dank12.png) \
 (Uses same operations as above)
 
 ### Image 3
 
-$K$:
-![picture](./images/dank13.png) \\
+$K$: \
+![picture](./images/dank13.png) \
 The operations used include:
 Rotated in all directions to sit on top of the microwave almost normally. Then, translated to appear still on the microwave.
 
-$K_{checker}$:
-![picture](./images/dank14.png) \\
+$K_{checker}$: \
+![picture](./images/dank14.png) \
 (Uses same operations as above)
 
 $K$ has worse quality than $K_{checker}$. This may be due the estimates for $K$ are less accurate as they are more likely to face human error.
