@@ -1,9 +1,9 @@
 # 1.4
 
-We found our sum\_squared to be
+We found our sum\textunderscore squared to be
 
 $$
-    \text{sum\_squared}\ =\begin{bmatrix}
+    sum\_squared =\begin{bmatrix}
         983.7296 \\
         600.8452
     \end{bmatrix}
