@@ -14,6 +14,7 @@ InputImage = imread("dankosaur.jpg");
 
 ObjectDirectory = 'dalekosaur';
 % To avoid taking forever we hard coded good data points
+% The line below may be uncommented to use clickPoints again
 %[impoints, objpoints3D] = clickPoints( InputImage, ObjectDirectory );
 impoints = [1.9613e+03, 1.1966e+03;
 1.8009e+03, 1.9388e+03;
